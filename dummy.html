@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Portfolio</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #007BFF;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li {
+      font-weight: 600;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #dbe9ff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    section {
+      padding: 40px 0;
+      /* Removed border-bottom to avoid double lines */
+      position: relative;
+    }
+
+    /* Remove border from last section for neatness */
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h1, h2 {
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* Projects grid */
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #eef6ff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #0056b3;
+      border-bottom: 1px solid #b3d1ff;
+      padding-bottom: 6px;
+    }
+
+    /* Skills list */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-item {
+      background: #007BFF;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 2px 5px rgba(0,123,255,0.3);
+      user-select: none;
+    }
+
+    /* Contact form */
+    form {
+      max-width: 500px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0,123,255,0.3);
+    }
+
+    button {
+      background: #007BFF;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    hr {
+      border: none;
+      border-bottom: 2px solid #007BFF;
+      margin: 15px 0 25px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+      }
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Vaishnavi Patel</div>
+    <nav>
+      <ul>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about-me">
+      <h1>About Me</h1>
+      <hr />
+      <p>Hello! I’m vaishnavi patel, studing information technologies and love to create a website using different tools and unique ideas. I love learning new technologies and applying them to create efficient solutions.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <hr />
+      <div class="projects-list">
+        <div class="project-card">
+          <h3>Project One</h3>
+          <p>A code using only cpp on unit converter using basic tools.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Two</h3>
+          <p>Using HTML create a form for admission purpose and application letter.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Three</h3>
+          <p>create a dummy website and edit it wisng various tools .</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <hr />
+      <div class="skills-list">
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">CSS</div>
+        <div class="skill-item">HTML5 </div>
+        <div class="skill-item">Python</div>
+      <div class="skill-item">Git & GitHub</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <hr />
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 YourName. All rights reserved.
+  </footer>
+
+</body>
+</html>
