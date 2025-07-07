@@ -8,44 +8,29 @@ const urlsToCache = [
   '/icons/icon-512x512.png'
 ];
 
-// Install: cache files one by one
+// Install the service worker
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return Promise.all(
-        urlsToCache.map(url =>
-          fetch(url).then(response => {
-            if (response.ok) {
-              return cache.put(url, response.clone());
-            } else {
-              console.warn(`Service Worker: skipping ${url}, status ${response.status}`);
-            }
-          }).catch(err => {
-            console.warn(`Service Worker: failed to fetch ${url}: ${err}`);
-          })
-        )
-      );
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
-// Activate: remove old caches
+// Activate and clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(names =>
+    caches.keys().then(cacheNames => 
       Promise.all(
-        names.filter(name => name !== CACHE_NAME)
-             .map(name => caches.delete(name))
+        cacheNames.filter(name => name !== CACHE_NAME)
+        .map(name => caches.delete(name))
       )
     )
   );
 });
 
-// Fetch: serve from cache, fallback to network
+// Fetch handler
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(resp => 
-      resp || fetch(event.request)
-    )
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
   );
 });
