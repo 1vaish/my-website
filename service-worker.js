@@ -2,11 +2,11 @@ const CACHE_NAME = 'portfolio-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles.css',
   '/manifest.json',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png'
 ];
+
 
 // Install the service worker
 self.addEventListener('install', event => {
